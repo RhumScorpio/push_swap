@@ -1,0 +1,23 @@
+./push_swap 4 1 2 3 5
+Error\n : si un doublon, si un char alphanumeric
+Argument : la pile a char **argv (check qu'il n'y a que des ints + afficher Error\n + atoi)
+Deux piles
+a
+b
++ OPERATIONS
+sa = swap a
+sb = swap b
+ss = sa et sb
+ra = reverse a
+rb = reverse b
+rr = ra et rb
+pa = push a
+pb = push b
+rra = reverse rotate a
+rrb = reverse rotate b
+rrr = rra et rrb
+Pré-trier le tableau avec un bubble sort (trier le tableau as ints goes in) + choper la mediane
+QuickSort avec la mediane utils operations?
+Savoir le Max et mettre conditions à l'opération
+Savoir jusqu'à quand pb
+

@@ -14,7 +14,7 @@ int		main(int ac, char **av)
 {
 	t_stack *a;
 	t_stack *b;
-
+	//malloc des deux stacks
 	a = (t_stack *)malloc(sizeof(t_stack));
 	stack_init(a);
 	b = (t_stack *)malloc(sizeof(t_stack));
@@ -25,9 +25,11 @@ int		main(int ac, char **av)
 		stack_free(a);
 		return (0);
 	}
-
-	//core_process(a, b);
-	stack_free(a);
-	stack_free(b);
+	else
+	{
+		//core_process(a, b);
+		stack_free(a);
+		stack_free(b);
+	}
 	return (0);
 }

@@ -89,7 +89,7 @@ static int	is_duplicated(t_stack *a, int data)
 	}
 	return (0);
 }
-
+//push args = stack a remplissage
 int	push_args_safely(t_stack *a, int ac, char **av)
 {
 	int i;

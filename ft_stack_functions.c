@@ -43,7 +43,7 @@ t_node	*stack_pop(t_stack *s)
 	top_node->next = NULL;
 	return (top_node);
 }
-
+//for pushing args into a
 void	stack_push(t_stack	*s, int d)
 {
 	t_node	*tmp;

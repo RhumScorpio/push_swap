@@ -1,33 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 23:12:23 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/03/07 23:37:45 by clesaffr         ###   ########.fr       */
+/*   Created: 2019/09/05 02:10:12 by clesaffr          #+#    #+#             */
+/*   Updated: 2021/11/17 20:03:57 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-int		ft_strlen(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr(char *s)
-{
-	write(1, s, ft_strlen(s));	
-}
-
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
 	int	result;

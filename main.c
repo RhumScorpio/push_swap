@@ -6,30 +6,30 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 17:14:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/03/07 23:11:34 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/04/09 22:13:58 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "push_swap.h"
 
-int		main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	t_stack *a;
-	t_stack *b;
-	//malloc des deux stacks
-	a = (t_stack *)malloc(sizeof(t_stack));
-	stack_init(a);
-	b = (t_stack *)malloc(sizeof(t_stack));
-	stack_init(b);
-	if (!push_args_safely(a, ac, av))
+	t_node	*a;
+	t_node	*b;
+
+	a = malloc_the_node();
+	b = malloc_the_node();
+	if (!a || !b)
+		return (0);
+	if (!push_args_safely(&a, ac, av))
 	{
 		write(1, "Error\n", 6);
-		stack_free(a);
+		node_free(a);
 		return (0);
 	}
-	else
-	{
-		//core_process(a, b);
-		stack_free(a);
-		stack_free(b);
-	}
+	printf("ISDIGIT = %d\n", ft_isdigit('9'));
+	show_stack(a);
+	core_process(a, b);
+	node_free(a);
+	node_free(b);
 	return (0);
 }

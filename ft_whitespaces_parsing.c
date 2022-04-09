@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_return_int.c                                    :+:      :+:    :+:   */
+/*   ft_whitespaces_parsing.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 19:15:23 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/03/07 23:35:33 by clesaffr         ###   ########.fr       */
+/*   Created: 2022/04/09 14:09:44 by clesaffr          #+#    #+#             */
+/*   Updated: 2022/04/09 14:09:53 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 static int	ft_whitespace(char c)
 {
-	if (c == '\n' || c == ' ' || c == '\t' 
+	if (c == '\n' || c == ' ' || c == '\t'
 		|| c == '\b' || c == '\v' || c == '\f' || c == '\r')
 		return (1);
 	return (0);
@@ -43,7 +45,7 @@ long long	ft_char_to_integer(const char *str)
 	return (res * sign);
 }
 
-static int	is_digit(char *s)
+int	while_digit(char *s)
 {
 	char	*p;
 
@@ -56,58 +58,3 @@ static int	is_digit(char *s)
 	}
 	return (1);
 }
-
-static int	is_int_range(char *s)
-{
-	long long	d;
-
-	d = ft_char_to_integer(s);
-	if (d > (long long)(2147483647) || d < (long long)(-2147483648))
-		return (0);
-	return (1);
-}
-
-static int	is_str_int(char *s)
-{
-	if (!is_digit(s))
-		return (0);
-	if (!is_int_range(s))
-		return (0);
-	return (1);
-}
-
-static int	is_duplicated(t_stack *a, int data)
-{
-	t_node	*n;
-
-	n = a->top;
-	while (n)
-	{
-		if (n->data == data)
-			return (1);
-		n = n->next;
-	}
-	return (0);
-}
-//push args = stack a remplissage
-int	push_args_safely(t_stack *a, int ac, char **av)
-{
-	int i;
-	int data;
-	char *str;
-
-	i = 1;
-	while (i < ac)
-	{
-		str = av[ac - i];
-		if (!is_str_int(str))
-			return (0);
-		data = ft_atoi(str);
-		if (is_duplicated(a, data))
-			return (0);
-		stack_push(a, data);
-		i++;
-	}
-	return (1);
-}
-

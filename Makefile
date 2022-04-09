@@ -3,41 +3,57 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+         #
+#    By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/01/11 14:04:21 by clesaffr          #+#    #+#              #
-#    Updated: 2022/03/08 00:12:15 by clesaffr         ###   ########.fr        #
+#    Created: 2022/03/14 21:04:05 by clesaffr          #+#    #+#              #
+#    Updated: 2022/04/09 22:18:02 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 NAME		=	push_swap
 
-CC			=	gcc
+LIBFT		=	libft.a
+
+CC			=	cc
 
 CFLAGS		=	-Wall -Werror -Wextra
 
-SRCS		=	main.c/
-				ft_pushing_args.c/
-				ft_return_int.c/
-				ft_stack_function.c/
-				libft.c
-
-HEADER		=	push_swap.h
+SRCS		=	ft_pushargs_safely.c \
+				ft_show_and_test.c \
+				ft_stack_functions.c \
+				ft_core_functions.c \
+				ft_whitespaces_parsing.c \
+				main.c
 
 OBJS		=	$(SRCS:.c=.o)
 
-all				:	$(NAME)
+PATH_OBJS	=	.objs/
 
-$(NAME)			:	$(OBJS)
+PATH_LIBFT	=	libft/
 
-$(OBJS)			:	$(SRCS)
-					$(CC) $(FLAGS) -c $(SRCS) -o $(NAME)
+F_OBJS		=	$(addprefix $(PATH_OBJS), $(OBJS))
+
+all			: $(PATH_OBJS) $(LIBFT) $(NAME)
+	
+$(PATH_OBJS):
+				@mkdir -p $(PATH_OBJS)
+
+$(NAME)		: $(F_OBJS)
+				$(CC) $(F_OBJS) -o $(NAME) $(LIBFT)
+
+$(LIBFT)	:
+				make -C $(PATH_LIBFT)
+
+$(PATH_OBJS)%.o	: %.c
+				$(CC) $(CFLAGS) -c $< -o $@
 
 clean			:
-					@rm -rf $(OBJS)
+					@rm -rf $(F_OBJS) $(PATH_OBJS) $(LIBFT)
 
 fclean			:	clean
 					@rm -f $(NAME)
+					@make fclean -C $(PATH_LIBFT)
 
 re				:	fclean all
 
-.PHONY: clean fclean all re
+.PHONY: all clean fclean re

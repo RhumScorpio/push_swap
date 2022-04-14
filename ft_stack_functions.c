@@ -34,6 +34,8 @@ void	node_push(t_node **s, int d)
 	t_node	*tmp;
 
 	tmp = (t_node *)malloc(sizeof(t_node));
+	if (!tmp)
+		return ;
 	tmp->number = d;
 	tmp->next = NULL;
 	tmp->is_pivot = 0;

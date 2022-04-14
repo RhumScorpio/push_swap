@@ -21,6 +21,7 @@ t_node	*malloc_the_node(void)
 		printf("Error in memory allocation.\n");
 		return (NULL);
 	}
+	new->next = NULL;
 	return (new);
 }
 
@@ -29,10 +30,8 @@ int	main(int ac, char **av)
 	t_node	*a;
 	t_node	*b;
 
-	a = malloc_the_node();
-	b = malloc_the_node();
-	if (!a || !b)
-		return (0);
+	a = NULL;
+	b = NULL;
 	if (!push_args_safely(&a, ac, av))
 	{
 		write(1, "Error\n", 6);

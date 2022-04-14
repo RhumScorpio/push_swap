@@ -12,24 +12,15 @@
 
 #include "push_swap.h"
 
-t_node	*malloc_the_node(void)
+int	pre_indexing(t_node *a)
 {
-	t_node	*new;
+	t_node			*tmp;
+	t_node			*compare;
+	unsigned int	i;
 
-	new = (t_node *)malloc(sizeof(t_node));
-	if (new == NULL)
-	{
-		printf("Error in memory allocation.\n");
-		return (NULL);
-	}
-	return (new);
-}
-
-void	pre_indexing(t_node *a)
-{
-	t_node	*tmp;
-	t_node	*compare;
-
+	if (!a)
+		return (0);
+	i = 0;
 	tmp = a;
 	compare = a;
 	while (tmp->next)
@@ -43,11 +34,20 @@ void	pre_indexing(t_node *a)
 		compare = a;
 		printf("INDEX >> %d [%d]\n", tmp->number, tmp->index_sorted);
 		tmp = tmp->next;
+		i++;
 	}
+	return (i);
 }
+
+
 
 void	core_process(t_node *a, t_node *b)
 {
+	int	total_nodes;
+	int	pivot_index;
+
 	(void)b;
-	pre_indexing(a);
+	total_nodes = pre_indexing(a);
+	pivot_index = total_nodes / 2;
+	printf("total = %d, pivot = %d\n", total_nodes, pivot_index);
 }

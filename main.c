@@ -11,6 +11,19 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+t_node	*malloc_the_node(void)
+{
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	if (new == NULL)
+	{
+		printf("Error in memory allocation.\n");
+		return (NULL);
+	}
+	return (new);
+}
+
 int	main(int ac, char **av)
 {
 	t_node	*a;
@@ -26,7 +39,6 @@ int	main(int ac, char **av)
 		node_free(a);
 		return (0);
 	}
-	printf("ISDIGIT = %d\n", ft_isdigit('9'));
 	show_stack(a);
 	core_process(a, b);
 	node_free(a);

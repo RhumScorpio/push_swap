@@ -29,12 +29,14 @@ typedef struct s_node
 }								t_node;
 
 t_node		*malloc_the_node(void);
+void		node_push(t_node **s, int d);
+
 long long	ft_char_to_integer(const char *str);
 void		show_stack(t_node *a);
 void		core_process(t_node *a, t_node *b);
 void		node_init(t_node *s);
 void		node_free(t_node *s);
-void		node_push(t_node	**s, int d);
+
 void		debug(t_node **a);
 int			while_digit(char *s);
 int			push_args_safely(t_node **a, int ac, char **av);

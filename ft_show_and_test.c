@@ -36,3 +36,26 @@ void	debug(t_node **a, char c)
 		tmp = tmp->next;
 	}
 }
+
+void	debug_stack(t_node **a, t_node **b)
+{
+	t_node *tmp;
+	t_node *tmp2;
+
+	tmp = *a;
+	tmp2 = *b;
+	printf("STACK A\n");
+	while (tmp)
+	{
+		printf("[%d]", tmp->number);
+		tmp = tmp->next;
+	}
+	printf("\n");
+	printf("STACK B\n");
+	while (tmp2)
+	{
+		printf("[%d]", tmp2->number);
+		tmp2 = tmp2->next;
+	}
+	printf("\n");
+}

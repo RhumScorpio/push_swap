@@ -40,5 +40,6 @@ int			node_is_empty(t_node *s);
 void		debug(t_node **a, char c);
 int			while_digit(char *s);
 int			push_args_safely(t_node **a, int ac, char **av);
+void	debug_stack(t_node **a, t_node **b);
 
 #endif

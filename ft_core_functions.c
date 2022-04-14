@@ -59,14 +59,10 @@ void	pb(t_node **a, t_node **b)
 	t_node	*tmp;
 	t_node	*tmp_free;
 
-	printf("A[%p]\n", *a);
 	if (!*a)
-	{
-		ft_putstr("end a\n");
 		return ;
-	}
 	tmp = get_first_node(a);
-	if (node_is_empty(*b))
+	if (!*b)
 		*b = tmp;
 	else
 	{
@@ -89,25 +85,13 @@ void	core_process(t_node *a, t_node *b)
 	pivot_index = total_nodes / 2;
 	printf("total = %d, pivot = %d\n", total_nodes, pivot_index);
 	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
+	debug_stack(&a, &b);
 	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
+	debug_stack(&a, &b);
 	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
+	debug_stack(&a, &b);
 	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
+	debug_stack(&a, &b);
 	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
-	//a==NULL
-	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
-	pb(&a, &b);
-	debug(&a, 'a');
-	debug(&b, 'b');
+	debug_stack(&a, &b);
 }

@@ -39,7 +39,8 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	show_stack(a);
-	core_process(a, b);
+	core_process(&a, &b);
+	show_stack(b);
 	node_free(a);
 	node_free(b);
 	return (0);

@@ -33,7 +33,7 @@ void		node_push(t_node **s, int d);
 
 long long	ft_char_to_integer(const char *str);
 void		show_stack(t_node *a);
-void		core_process(t_node *a, t_node *b);
+void		core_process(t_node **a, t_node **b);
 void		node_init(t_node *s);
 void		node_free(t_node *s);
 int			node_is_empty(t_node *s);

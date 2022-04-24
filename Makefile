@@ -6,7 +6,7 @@
 #    By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 21:04:05 by clesaffr          #+#    #+#              #
-#    Updated: 2022/04/09 22:18:02 by clesaffr         ###   ########.fr        #
+#    Updated: 2022/04/17 20:03:23 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ LIBFT		=	libft.a
 
 CC			=	cc
 
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		=	-g3 -Wall -Werror -Wextra
 
 SRCS		=	ft_pushargs_safely.c \
 				ft_show_and_test.c \

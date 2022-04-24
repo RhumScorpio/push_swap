@@ -39,59 +39,36 @@ int	pre_indexing(t_node **a)
 	return (i);
 }
 
-t_node	*get_first_node(t_node **s)
-{
-	t_node	*tmp;
-	t_node	*original;
-
-	original = *s;
-	tmp = (t_node *)malloc(sizeof(t_node));
-	if (!tmp)
-		return (NULL);
-	tmp->number = original->number;
-	tmp->index_sorted = original->index_sorted;
-	tmp->next = NULL;
-	return (tmp);
-}
-
 void	pb(t_node **a, t_node **b)
 {
 	t_node	*tmp;
-	t_node	*tmp_free;
 
 	if (!*a)
 		return ;
-	tmp = get_first_node(a);
-	if (!*b)
-		*b = tmp;
-	else
-	{
-		tmp->next = *b;
-		*b = tmp;
-	}
-	tmp_free = *a;
-	*a = tmp_free->next;
+	tmp = *a;
+	*a = a[0]->next;
+	tmp->next = *b;
+	*b = tmp;
 	ft_putstr("pb\n");
 }
 
 
-void	core_process(t_node *a, t_node *b)
+void	core_process(t_node **a, t_node **b)
 {
 	int	total_nodes;
 	int	pivot_index;
 
-	(void)b;
-	total_nodes = pre_indexing(&a);
+	total_nodes = pre_indexing(a);
 	pivot_index = total_nodes / 2;
 	printf("total = %d, pivot = %d\n", total_nodes, pivot_index);
-	pb(&a, &b);
-	debug_stack(&a, &b);
-	pb(&a, &b);
-	debug_stack(&a, &b);
-	pb(&a, &b);
-	debug_stack(&a, &b);
-	pb(&a, &b);
-	debug_stack(&a, &b);
-	pb(&a, &b);
-	debug_stack(&a, &b);
+	pb(a, b);
+	debug_stack(a, b);
+	pb(a, b);
+	debug_stack(a, b);
+	pb(a, b);
+	debug_stack(a, b);
+	pb(a, b);
+	debug_stack(a, b);
+	pb(a, b);
+	debug_stack(a, b);
 }

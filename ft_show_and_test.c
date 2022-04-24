@@ -14,6 +14,7 @@
 
 void	show_stack(t_node *a)
 {
+	printf("SHOW STACK\n");
 	while (a != NULL)
 	{
 		printf("[%d]\n", a->number);

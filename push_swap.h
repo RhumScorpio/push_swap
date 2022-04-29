@@ -30,6 +30,8 @@ typedef struct s_node
 
 t_node		*malloc_the_node(void);
 void		node_push(t_node **s, int d);
+int     if_node_is_last(t_node *s);
+int     if_node_is_nexttolast(t_node *s);
 
 long long	ft_char_to_integer(const char *str);
 void		show_stack(t_node *a);
@@ -40,6 +42,6 @@ int			node_is_empty(t_node *s);
 void		debug(t_node **a, char c);
 int			while_digit(char *s);
 int			push_args_safely(t_node **a, int ac, char **av);
-void	debug_stack(t_node **a, t_node **b);
+void		debug_stack(t_node **a, t_node **b);
 
 #endif

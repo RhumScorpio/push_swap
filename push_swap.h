@@ -32,6 +32,13 @@ t_node		*malloc_the_node(void);
 void		node_push(t_node **s, int d);
 int     if_node_is_last(t_node *s);
 int     if_node_is_nexttolast(t_node *s);
+int		get_list_size(t_node **list);
+void	list_addback(t_node *b, t_node *add);
+int		list_too_short(t_node **b);
+void    rrb(t_node **b);
+void	rb(t_node **b);
+void	sb(t_node **b);
+void	pb(t_node **a, t_node **b);
 
 long long	ft_char_to_integer(const char *str);
 void		show_stack(t_node *a);

@@ -23,6 +23,8 @@ SRCS		=	ft_pushargs_safely.c \
 				ft_stack_functions.c \
 				ft_core_functions.c \
 				ft_whitespaces_parsing.c \
+				ft_stack_functions2.c \
+				ft_operating_on_lists.c \
 				main.c
 
 OBJS		=	$(SRCS:.c=.o)

@@ -39,46 +39,6 @@ int	pre_indexing(t_node **a)
 	return (i);
 }
 
-void	pb(t_node **a, t_node **b)
-{
-	t_node	*tmp;
-
-	if (!*a)
-		return ;
-	tmp = *a;
-	*a = a[0]->next;
-	tmp->next = *b;
-	*b = tmp;
-	ft_putstr("pb\n");
-}
-
-void	sb(t_node **b)
-{
-	t_node	*tmp;
-
-	if(!*b)
-		return ;
-	tmp = *b;
-	*b = b[0]->next;
-	tmp->next = b[0]->next;
-	b[0]->next = tmp; 
-	ft_putstr("sb\n");
-}
-
-void	rb(t_node **b)
-{
-	t_node	*temp_b;
-
-	if(!*b)
-		return ;
-	temp_b = *b;
-	temp_b->next = NULL;
-	if (b[0]->next)
-		*b = b[0]->next;
-	
-	ft_putstr("rb\n");
-}
-
 void	core_process(t_node **a, t_node **b)
 {
 	int	total_nodes;
@@ -95,8 +55,9 @@ void	core_process(t_node **a, t_node **b)
 	debug_stack(a, b);
 	pb(a, b);
 	debug_stack(a, b);
-	sb(b);
-	debug_stack(a, b);
 	rb(b);
+	debug_stack(a, b);
+	printf("get size = %d / getsize = %d\n", get_list_size(b), get_list_size(a));
+	rrb(b);
 	debug_stack(a, b);
 }

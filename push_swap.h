@@ -39,6 +39,11 @@ void    rrb(t_node **b);
 void	rb(t_node **b);
 void	sb(t_node **b);
 void	pb(t_node **a, t_node **b);
+void    rra(t_node **b);
+void	ra(t_node **b);
+void	sa(t_node **b);
+void	pa(t_node **a, t_node **b);
+t_node  *link_new_node_to_head(t_node **list, t_node *node);
 
 long long	ft_char_to_integer(const char *str);
 void		show_stack(t_node *a);

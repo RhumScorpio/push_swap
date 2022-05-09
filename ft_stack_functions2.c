@@ -21,6 +21,15 @@ void	list_addback(t_node *b, t_node *add)
 	add->next = NULL;
 }
 
+t_node  *link_new_node_to_head(t_node **list, t_node *node)
+{
+    t_node  *tmp;
+
+    tmp = node;
+    tmp->next = *list;
+    return (tmp);
+}
+
 int		get_list_size(t_node **list)
 {
 	t_node	*tmp;

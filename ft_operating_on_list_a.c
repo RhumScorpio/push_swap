@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_operating_on_lists.c                            :+:      :+:    :+:   */
+/*   ft_operating_on_list_a.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 18:34:39 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/05/08 18:34:57 by clesaffr         ###   ########.fr       */
+/*   Created: 2022/05/09 16:41:22 by clesaffr          #+#    #+#             */
+/*   Updated: 2022/05/09 16:41:29 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pb(t_node **a, t_node **b)
+void	pa(t_node **a, t_node **b)
 {
 	t_node	*tmp;
 
@@ -22,10 +22,10 @@ void	pb(t_node **a, t_node **b)
 	*a = a[0]->next;
 	tmp->next = *b;
 	*b = tmp;
-	ft_putstr("pb\n");
+	ft_putstr("pa\n");
 }
 
-void	sb(t_node **b)
+void	sa(t_node **b)
 {
 	t_node	*tmp;
 
@@ -35,10 +35,10 @@ void	sb(t_node **b)
 	*b = b[0]->next;
 	tmp->next = b[0]->next;
 	b[0]->next = tmp;
-	ft_putstr("sb\n");
+	ft_putstr("sa\n");
 }
 
-void	rb(t_node **b)
+void	ra(t_node **b)
 {
 	t_node	*temp_b;
 	t_node	*temp_next;
@@ -50,18 +50,10 @@ void	rb(t_node **b)
 	temp_b = temp_b->next;
 	list_addback(temp_b, temp_next);
 	*b = temp_b;
-	ft_putstr("rb\n");
+	ft_putstr("ra\n");
 }
 
-t_node  *add_new_node_to_list(t_node **list, t_node *node)
-{
-    t_node  *tmp;
-
-    tmp = node;
-    tmp->next = *list;
-    return (tmp);
-}
-void    rrb(t_node **b)
+void    rra(t_node **b)
 {
     t_node  *temp_b;
     t_node  *temp_prev;
@@ -72,7 +64,8 @@ void    rrb(t_node **b)
         temp_prev = temp_b;
         temp_b = temp_b->next;
     }
-    *b = add_new_node_to_list(b, temp_b);
+    *b = link_new_node_to_head(b, temp_b);
     temp_prev->next = NULL;
-    ft_putstr("rrb\n");
+    ft_putstr("rra\n");
 }
+

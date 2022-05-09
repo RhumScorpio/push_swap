@@ -49,15 +49,6 @@ void	core_process(t_node **a, t_node **b)
 	printf("total = %d, pivot = %d\n", total_nodes, pivot_index);
 	pb(a, b);
 	debug_stack(a, b);
-	pb(a, b);
-	debug_stack(a, b);
-	pb(a, b);
-	debug_stack(a, b);
-	pb(a, b);
-	debug_stack(a, b);
-	rb(b);
-	debug_stack(a, b);
-	printf("get size = %d / getsize = %d\n", get_list_size(b), get_list_size(a));
-	rrb(b);
+	pa(b, a);
 	debug_stack(a, b);
 }

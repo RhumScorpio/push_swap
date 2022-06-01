@@ -46,9 +46,7 @@ void	core_process(t_node **a, t_node **b)
 
 	total_nodes = pre_indexing(a);
 	pivot_index = total_nodes / 2;
-	printf("total = %d, pivot = %d\n", total_nodes, pivot_index);
-	pb(a, b);
+	printf("total = %d, pivot = %d\nshow stacks\n", total_nodes, pivot_index);
 	debug_stack(a, b);
-	pa(b, a);
-	debug_stack(a, b);
+	
 }

@@ -38,8 +38,6 @@ void	node_push(t_node **s, int d)
 		return ;
 	tmp->number = d;
 	tmp->next = NULL;
-	tmp->is_pivot = 0;
-	tmp->by_pivot = 0;
 	tmp->index_sorted = 0;
 	if (node_is_empty(*s))
 		*s = tmp;

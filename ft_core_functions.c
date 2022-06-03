@@ -48,5 +48,5 @@ void	core_process(t_node **a, t_node **b)
 	pivot_index = total_nodes / 2;
 	printf("total = %d, pivot = %d\nshow stacks\n", total_nodes, pivot_index);
 	debug_stack(a, b);
-	
+	pushing_in_b(a, b);
 }

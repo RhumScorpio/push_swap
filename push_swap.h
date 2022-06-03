@@ -22,12 +22,11 @@
 typedef struct s_node
 {
 	int				number;
-	struct s_node	*next;
-	int				is_pivot;
-	int				by_pivot;
 	int				index_sorted;
+	struct s_node	*next;
 }								t_node;
 
+void    pushing_in_b(t_node **a, t_node **b);
 t_node		*malloc_the_node(void);
 void		node_push(t_node **s, int d);
 int     if_node_is_last(t_node *s);

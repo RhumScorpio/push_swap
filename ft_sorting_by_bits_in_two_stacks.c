@@ -16,3 +16,28 @@
 //des unites jusqu'au million
 //stack a = 1 / stack b = 0
 
+void    pushing_in_b(t_node **a, t_node **b)
+{
+    int nuwidth;
+    int i;
+    t_node  *tmp;
+
+    (void)b;
+    nuwidth = 0;
+    i = 0;
+    tmp = *a;
+    while (tmp)
+    {
+        printf("analyse a[%d]\n", i);
+         while (nuwidth <= 31)
+        {
+            printf("%d|", (tmp->index_sorted>>nuwidth)&1);
+            nuwidth++;
+        }
+        i++;
+        tmp = tmp->next;
+        nuwidth = 0;
+        printf("\n");
+    }
+   
+}

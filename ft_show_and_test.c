@@ -15,36 +15,38 @@
 void	show_stack(t_node *a)
 {
 	printf("SHOW STACK\n");
-	while (a != NULL)
+	while (a)
 	{
 		printf("[%d]\n", a->number);
 		a = a->next;
 	}
 }
 
-void	debug(t_node **a, char c)
+void	debug(t_node *a, char c)
 {
 	t_node	*tmp;
 
-	if (!*a)
+	if (!a)
 		return ;
-	tmp = *a;
+	tmp = a;
 	printf("DEBUG %c\n", c);
 	while (tmp)
 	{
-		printf("number = %d, pivot[%d], by_pivot[%d], index[%d]\n",
-			tmp->number, tmp->is_pivot, tmp->by_pivot, tmp->index_sorted);
+		printf("number = %d, index[%d]\n",
+			tmp->number, tmp->index_sorted);
 		tmp = tmp->next;
 	}
 }
 
-void	debug_stack(t_node **a, t_node **b)
+void	debug_stack(t_node *a, t_node *b)
 {
 	t_node *tmp;
 	t_node *tmp2;
 
-	tmp = *a;
-	tmp2 = *b;
+	if (!a | !b)
+		return ;
+	tmp = a;
+	tmp2 = b;
 	printf("STACK A\n");
 	while (tmp)
 	{

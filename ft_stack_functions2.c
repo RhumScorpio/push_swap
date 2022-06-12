@@ -12,21 +12,20 @@
 
 #include "push_swap.h"
 
-void	list_addback(t_node *b, t_node *add)
+void	list_addback(t_node *list, t_node *add)
 {
-	printf("find last to append\n");
-	while (b->next != NULL)
-		b = b->next;
-	b->next = add;
+	while (list->next != NULL)
+		list = list->next;
+	list->next = add;
 	add->next = NULL;
 }
 
-t_node  *link_new_node_to_head(t_node **list, t_node *node)
+t_node  *link_new_node_to_head(t_node *list, t_node *node)
 {
     t_node  *tmp;
 
     tmp = node;
-    tmp->next = *list;
+    tmp->next = list;
     return (tmp);
 }
 
@@ -34,6 +33,7 @@ int		get_list_size(t_node **list)
 {
 	t_node	*tmp;
 	int		i;
+
 
 	tmp = *list;
 	i = 0;
@@ -45,9 +45,9 @@ int		get_list_size(t_node **list)
 	return (i);
 }
 
-int		list_too_short(t_node **b)
+int		list_too_short(t_node **list)
 {
-	if (get_list_size(b) < 2)
+	if (get_list_size(list) < 2)
 		return (1);
 	return (0);
 }

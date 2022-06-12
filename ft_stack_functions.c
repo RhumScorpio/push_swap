@@ -11,16 +11,13 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	node_is_empty(t_node *s)
-{
-	return (s == NULL);
-}
-
 void	node_free(t_node *s)
 {
 	t_node	*top;
 
-	while (!node_is_empty(s))
+	if (!s)
+		return ;
+	while (s->next)
 	{
 		top = s;
 		s = s->next;
@@ -39,7 +36,7 @@ void	node_push(t_node **s, int d)
 	tmp->number = d;
 	tmp->next = NULL;
 	tmp->index_sorted = 0;
-	if (node_is_empty(*s))
+	if (!*s)
 		*s = tmp;
 	else
 	{

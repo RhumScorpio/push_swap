@@ -25,46 +25,46 @@ void	pa(t_node **a, t_node **b)
 	ft_putstr("pa\n");
 }
 
-void	sa(t_node **b)
+void	sa(t_node **a)
 {
 	t_node	*tmp;
 
-	if(!*b)
+	if(!*a)
 		return ;
-	tmp = *b;
-	*b = b[0]->next;
-	tmp->next = b[0]->next;
-	b[0]->next = tmp;
+	tmp = *a;
+	*a = a[0]->next;
+	tmp->next = a[0]->next;
+	a[0]->next = tmp;
 	ft_putstr("sa\n");
 }
 
-void	ra(t_node **b)
+void	ra(t_node **a)
 {
-	t_node	*temp_b;
+	t_node	*temp_a;
 	t_node	*temp_next;
 
-	if(!*b || list_too_short(b))
+	if(!*a || list_too_short(a))
 		return ;
-	temp_b = *b;
-	temp_next = temp_b;
-	temp_b = temp_b->next;
-	list_addback(temp_b, temp_next);
-	*b = temp_b;
+	temp_a = *a;
+	temp_next = temp_a;
+	temp_a = temp_a->next;
+	list_addback(temp_a, temp_next);
+	*a = temp_a;
 	ft_putstr("ra\n");
 }
 
-void    rra(t_node **b)
+void    rra(t_node **a)
 {
-    t_node  *temp_b;
+    t_node  *temp_a;
     t_node  *temp_prev;
 
-    temp_b = *b;
-    while (temp_b->next)
+    temp_a = *a;
+    while (temp_a->next)
     {
-        temp_prev = temp_b;
-        temp_b = temp_b->next;
+        temp_prev = temp_a;
+        temp_a = temp_a->next;
     }
-    *b = link_new_node_to_head(b, temp_b);
+    *a = link_new_node_to_head(a, temp_a);
     temp_prev->next = NULL;
     ft_putstr("rra\n");
 }

@@ -18,7 +18,7 @@ int	pre_indexing(t_node **a)
 	t_node			*compare;
 	unsigned int	i;
 
-	if (!a)
+	if (!*a)
 		return (0);
 	i = 0;
 	tmp = *a;
@@ -32,7 +32,6 @@ int	pre_indexing(t_node **a)
 			compare = compare->next;
 		}
 		compare = *a;
-		printf("INDEX >> %d [%d]\n", tmp->number, tmp->index_sorted);
 		tmp = tmp->next;
 		i++;
 	}
@@ -42,11 +41,8 @@ int	pre_indexing(t_node **a)
 void	core_process(t_node **a, t_node **b)
 {
 	int	total_nodes;
-	int	pivot_index;
 
 	total_nodes = pre_indexing(a);
-	pivot_index = total_nodes / 2;
-	printf("total = %d, pivot = %d\nshow stacks\n", total_nodes, pivot_index);
-	debug_stack(a, b);
-	pushing_in_b(a, b);
+	debug(*a, 'a');
+	bitshifting(a, b);
 }

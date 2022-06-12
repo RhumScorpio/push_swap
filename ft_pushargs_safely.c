@@ -44,7 +44,7 @@ static int	is_duplicated(t_node **a, int data)
 	return (0);
 }
 
-int	push_args_safely(t_node **a, int ac, char **av)
+int		push_args_safely(t_node **a, int ac, char **av)
 {
 	int		i;
 	int		data;

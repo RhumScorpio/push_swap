@@ -38,9 +38,11 @@ int	main(int ac, char **av)
 		node_free(a);
 		return (0);
 	}
+	//debug_stack(a, b);
 	show_stack(a);
+	debug(a, 'A');
 	core_process(&a, &b);
-	show_stack(b);
+	debug(a, 'A');
 	node_free(a);
 	node_free(b);
 	return (0);

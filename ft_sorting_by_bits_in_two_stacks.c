@@ -16,28 +16,71 @@
 //des unites jusqu'au million
 //stack a = 1 / stack b = 0
 
-void    pushing_in_b(t_node **a, t_node **b)
+//fonctions pour une stack inferieure a 5
+void    max_five()
 {
-    int nuwidth;
-    int i;
+    
+}
+
+/*rappel on verifie grace a index->sorted si la position se termine par 0 ou par 1
+fonction : main>core_process>bitshifting>checks-bit>sorts
+arguments : t_node a **, t_node b **
+*/
+
+//fonction pour faire pb
+
+//fonction pour faire ra
+
+//fonction pour faire pa
+
+//fonction qui check le bit
+
+void    checks_bits(t_node **a, t_node **b, int bitshift_width)
+{
     t_node  *tmp;
+    t_node  *oper_a;
+    int max_num;
+    int i;
 
     (void)b;
-    nuwidth = 0;
-    i = 0;
     tmp = *a;
-    while (tmp)
+    debug(tmp, 'T');
+
+    oper_a = *a;
+    max_num = get_list_size(a);
+        debug(tmp, 'T');
+
+    i = 0;
+    while (i < max_num)
     {
-        printf("analyse a[%d]\n", i);
-         while (nuwidth <= 31)
+        printf("NUM %d, IND %d\n", tmp->number, tmp->index_sorted);
+        if ((tmp->index_sorted>>bitshift_width)&1)
         {
-            printf("%d|", (tmp->index_sorted>>nuwidth)&1);
-            nuwidth++;
+          printf("PB\n");
+            pb(&tmp, b);
+        }
+        else
+        {
+          printf("RA\n");
+           ra(&tmp);
         }
         i++;
-        tmp = tmp->next;
-        nuwidth = 0;
-        printf("\n");
+        //tmp = tmp->next;
     }
-   
+        debug(tmp, 'T');
+
+}
+
+void    bitshifting(t_node **a, t_node **b)
+{
+    int bitshift_width;
+
+    bitshift_width = 0;
+   // while (bitshift_width < 32)
+   // {
+        checks_bits(a, b, bitshift_width);
+        bitshift_width++;
+    debug(*a, 'A');
+
+   // }
 }

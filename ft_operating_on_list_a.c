@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void	pa(t_node **a, t_node **b)
+void	pa(t_node **b, t_node **a)
 {
 	t_node	*tmp;
 
-	if (!*a)
+	if (!*b)
 		return ;
-	tmp = *a;
-	*a = a[0]->next;
-	tmp->next = *b;
-	*b = tmp;
+	tmp = *b;
+	*b = b[0]->next;
+	tmp->next = *a;
+	*a = tmp;
 	ft_putstr("pa\n");
 }
 
@@ -64,7 +64,7 @@ void    rra(t_node **a)
         temp_prev = temp_a;
         temp_a = temp_a->next;
     }
-    *a = link_new_node_to_head(a, temp_a);
+    *a = link_new_node_to_head(*a, temp_a);
     temp_prev->next = NULL;
     ft_putstr("rra\n");
 }

@@ -39,7 +39,7 @@ void	pb(t_node **a, t_node **b);
 void    rra(t_node **a);
 void	ra(t_node **a);
 void	sa(t_node **a);
-void	pa(t_node **a, t_node **b);
+void	pa(t_node **b, t_node **a);
 t_node  *link_new_node_to_head(t_node *list, t_node *node);
 
 long long	ft_char_to_integer(const char *str);

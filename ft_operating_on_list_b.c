@@ -64,7 +64,7 @@ void    rrb(t_node **b)
         temp_prev = temp_b;
         temp_b = temp_b->next;
     }
-    *b = link_new_node_to_head(b, temp_b);
+    *b = link_new_node_to_head(*b, temp_b);
     temp_prev->next = NULL;
     ft_putstr("rrb\n");
 }

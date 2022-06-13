@@ -40,35 +40,24 @@ void    checks_bits(t_node **a, t_node **b, int bitshift_width)
     t_node  *tmp;
     t_node  *oper_a;
     int max_num;
-    int i;
 
     (void)b;
     tmp = *a;
-    debug(tmp, 'T');
-
     oper_a = *a;
     max_num = get_list_size(a);
-        debug(tmp, 'T');
-
-    i = 0;
-    while (i < max_num)
+    while (max_num--)
     {
-        printf("NUM %d, IND %d\n", tmp->number, tmp->index_sorted);
         if ((tmp->index_sorted>>bitshift_width)&1)
-        {
-          printf("PB\n");
             pb(&tmp, b);
-        }
         else
-        {
-          printf("RA\n");
            ra(&tmp);
-        }
-        i++;
-        //tmp = tmp->next;
     }
-        debug(tmp, 'T');
-
+    debug(tmp, 'T');
+    debug(*b, 'B');
+    debug(*a, 'A');
+    max_num = get_list_size(b);
+    while (max_num--)
+        pa(&tmp, b);
 }
 
 void    bitshifting(t_node **a, t_node **b)
@@ -76,11 +65,9 @@ void    bitshifting(t_node **a, t_node **b)
     int bitshift_width;
 
     bitshift_width = 0;
-   // while (bitshift_width < 32)
+ //   while (bitshift_width < 32)
    // {
         checks_bits(a, b, bitshift_width);
         bitshift_width++;
-    debug(*a, 'A');
-
-   // }
+    //}
 }

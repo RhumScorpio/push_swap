@@ -12,10 +12,9 @@
 
 #include "push_swap.h"
 
-static int	ft_whitespace(char c)
+int	ft_whitespace(char c)
 {
-	if (c == '\n' || c == ' ' || c == '\t'
-		|| c == '\b' || c == '\v' || c == '\f' || c == '\r')
+	if (c == ' ' || (c >= 7 && c <= 13))
 		return (1);
 	return (0);
 }
@@ -31,13 +30,13 @@ long long	ft_char_to_integer(const char *str)
 	i = 0;
 	while (ft_whitespace(str[i]) == 1)
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	while (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while ((str[i] != '\0') && (str[i] - '0' >= 0 && str[i] - '0' <= 9))
+	while ((str[i] != '\0') && (str[i] >= '0' && str[i] <= '9'))
 	{
 		res = res * 10 + str[i] - '0';
 		i++;

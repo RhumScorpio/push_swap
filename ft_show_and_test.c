@@ -6,7 +6,7 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 23:27:39 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/04/02 23:02:00 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/06/15 23:01:33 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,15 @@ void	debug(t_node *a, char c)
 	{
 		printf("number = %d, index[%d]\n",
 			tmp->number, tmp->index_sorted);
+		printf("%p\n", tmp->next);
 		tmp = tmp->next;
 	}
 }
 
 void	debug_stack(t_node *a, t_node *b)
 {
-	t_node *tmp;
-	t_node *tmp2;
+	t_node	*tmp;
+	t_node	*tmp2;
 
 	if (!a | !b)
 		return ;

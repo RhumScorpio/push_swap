@@ -6,16 +6,30 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/06 19:49:35 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/04/03 16:41:40 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/06/15 23:04:35 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
+
+t_node	*malloc_the_node(void)
+{
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	if (new == NULL)
+	{
+		printf("Error in memory allocation.\n");
+		return (NULL);
+	}
+	new->next = NULL;
+	return (new);
+}
 
 void	node_free(t_node *s)
 {
 	t_node	*top;
 
-	if (!s)
+	if (s == NULL)
 		return ;
 	while (s->next)
 	{
@@ -44,4 +58,3 @@ void	node_push(t_node **s, int d)
 		*s = tmp;
 	}
 }
-

@@ -43,6 +43,6 @@ void	core_process(t_node **a, t_node **b)
 	int	total_nodes;
 
 	total_nodes = pre_indexing(a);
-	debug(*a, 'a');
+	//debug_stack(*a, *b);
 	bitshifting(a, b);
 }

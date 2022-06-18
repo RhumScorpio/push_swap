@@ -6,7 +6,7 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/09 16:41:22 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/05/09 16:41:29 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/06/15 22:57:30 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sa(t_node **a)
 {
 	t_node	*tmp;
 
-	if(!*a)
+	if (!*a)
 		return ;
 	tmp = *a;
 	*a = a[0]->next;
@@ -43,7 +43,7 @@ void	ra(t_node **a)
 	t_node	*temp_a;
 	t_node	*temp_next;
 
-	if(!*a || list_too_short(a))
+	if (!*a || list_too_short(a))
 		return ;
 	temp_a = *a;
 	temp_next = temp_a;
@@ -53,19 +53,18 @@ void	ra(t_node **a)
 	ft_putstr("ra\n");
 }
 
-void    rra(t_node **a)
+void	rra(t_node **a)
 {
-    t_node  *temp_a;
-    t_node  *temp_prev;
+	t_node	*temp_a;
+	t_node	*temp_prev;
 
-    temp_a = *a;
-    while (temp_a->next)
-    {
-        temp_prev = temp_a;
-        temp_a = temp_a->next;
-    }
-    *a = link_new_node_to_head(*a, temp_a);
-    temp_prev->next = NULL;
-    ft_putstr("rra\n");
+	temp_a = *a;
+	while (temp_a->next)
+	{
+		temp_prev = temp_a;
+		temp_a = temp_a->next;
+	}
+	*a = link_new_node_to_head(*a, temp_a);
+	temp_prev->next = NULL;
+	ft_putstr("rra\n");
 }
-

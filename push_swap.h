@@ -71,6 +71,12 @@ void		core_process(t_node **a, t_node **b);
 //ft_show_and_test.c
 void		show_stack(t_node *a);
 void		debug(t_node *a, char c);
+<<<<<<< HEAD
+=======
+int			while_digit(char *s);
+int			ft_whitespace(char c);
+int			push_args_safely(t_node **a, int ac, char **av);
+>>>>>>> 8665085bc3240a16fbd90683e4e5896832c49295
 void		debug_stack(t_node *a, t_node *b);
 
 #endif

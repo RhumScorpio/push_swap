@@ -6,24 +6,10 @@
 /*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/07 17:14:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/04/09 22:13:58 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/06/18 23:21:38 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
-t_node	*malloc_the_node(void)
-{
-	t_node	*new;
-
-	new = (t_node *)malloc(sizeof(t_node));
-	if (new == NULL)
-	{
-		printf("Error in memory allocation.\n");
-		return (NULL);
-	}
-	new->next = NULL;
-	return (new);
-}
 
 int	main(int ac, char **av)
 {
@@ -38,11 +24,8 @@ int	main(int ac, char **av)
 		node_free(a);
 		return (0);
 	}
-	//debug_stack(a, b);
-	show_stack(a);
-	debug(a, 'A');
 	core_process(&a, &b);
-	debug(a, 'A');
+	show_stack(a);
 	node_free(a);
 	node_free(b);
 	return (0);

@@ -27,6 +27,7 @@ SRCS		=	ft_pushargs_safely.c \
 				ft_operating_on_list_b.c \
 				ft_operating_on_list_a.c \
 				ft_sorting_by_bits_in_two_stacks.c \
+				ft_sorting_for_stacksize_five.c \
 				main.c
 
 OBJS		=	$(SRCS:.c=.o)

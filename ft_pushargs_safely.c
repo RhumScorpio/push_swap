@@ -6,29 +6,10 @@
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 14:11:29 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/04/09 14:11:35 by clesaffr         ###   ########.fr       */
+/*   Updated: 2022/07/10 15:10:33 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
-
-static int	is_int_range(char *s)
-{
-	long long	d;
-
-	d = ft_char_to_integer(s);
-	if (d > (long long)(2147483647) || d < (long long)(-2147483648))
-		return (0);
-	return (1);
-}
-
-static int	is_str_int(char *s)
-{
-	if (!while_digit(s))
-		return (0);
-	if (!is_int_range(s))
-		return (0);
-	return (1);
-}
 
 static int	is_duplicated(t_node **a, int data)
 {
@@ -44,23 +25,68 @@ static int	is_duplicated(t_node **a, int data)
 	return (0);
 }
 
-int		push_args_safely(t_node **a, int ac, char **av)
+int	ft_whitespace(char c)
 {
-	int		i;
+	if (c == ' ' || (c >= 7 && c <= 13))
+		return (1);
+	return (0);
+}
+
+int	ft_splitting_args(t_node **a, char *str)
+{
+	char	**split;
+	int 	i;
 	int		data;
-	char	*str;
+	int		checked;
 
 	i = 1;
-	while (i < ac)
+	data = 0;
+	checked = 0;
+	split = ft_split(str, ' ');
+	if (!split)
+		return (0);
+	while (split[i])
 	{
-		str = av[ac - i];
-		if (!is_str_int(str))
-			return (0);
-		data = ft_atoi(str);
-		if (is_duplicated(a, data))
+		checked = is_str_int(split[i]);
+		data = ft_atoi(split[i]);
+		if (is_duplicated(a, data) || !checked)
 			return (0);
 		node_push(a, data);
 		i++;
 	}
+	return (1);
+}
+
+int	ft_push_str(t_node **a, char **split)
+{	
+	int i;
+	int	data;
+	int	checked;
+
+	i = 1;
+	data = 0;
+	checked = 0;
+	if (!split)
+		return (0);
+	while (split[i])
+	{
+		checked = is_str_int(split[i]);
+		data = ft_atoi(split[i]);
+		if (is_duplicated(a, data) || !checked)
+			return (0);
+		node_push(a, data);
+		i++;
+	}
+	return (1);
+}
+
+int	push_args_safely(t_node **a, int ac, char **av)
+{
+	if (ac == 1 || *av == NULL)
+		return (0);
+	else if (ac == 2)
+		return (ft_splitting_args(a, av[1]));
+	else
+		return(ft_push_str(a, av));
 	return (1);
 }

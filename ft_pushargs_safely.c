@@ -35,47 +35,51 @@ int	ft_whitespace(char c)
 int	ft_splitting_args(t_node **a, char *str)
 {
 	char	**split;
-	int 	i;
+	int		i;
 	int		data;
 	int		checked;
 
-	i = 1;
 	data = 0;
 	checked = 0;
 	split = ft_split(str, ' ');
+	i = ft_size_of_doubletab(split);
 	if (!split)
 		return (0);
-	while (split[i])
+	while (i && i >= 0)
 	{
+		i--;
 		checked = is_str_int(split[i]);
 		data = ft_atoi(split[i]);
 		if (is_duplicated(a, data) || !checked)
+		{
+			ft_free_doubletab(split);
 			return (0);
+		}
 		node_push(a, data);
-		i++;
 	}
+	ft_free_doubletab(split);
 	return (1);
 }
 
-int	ft_push_str(t_node **a, char **split)
+int	ft_push_str(t_node **a, char **split, int ac)
 {	
-	int i;
+	int	i;
 	int	data;
 	int	checked;
 
-	i = 1;
+	i = ac - 1;
 	data = 0;
 	checked = 0;
 	if (!split)
 		return (0);
-	while (split[i])
+	while (i && i > 0)
 	{
 		checked = is_str_int(split[i]);
 		data = ft_atoi(split[i]);
 		if (is_duplicated(a, data) || !checked)
 			return (0);
 		node_push(a, data);
-		i++;
+		i--;
 	}
 	return (1);
 }
@@ -83,10 +87,10 @@ int	ft_push_str(t_node **a, char **split)
 int	push_args_safely(t_node **a, int ac, char **av)
 {
 	if (ac == 1 || *av == NULL)
-		return (0);
+		return (1);
 	else if (ac == 2)
 		return (ft_splitting_args(a, av[1]));
-	else
-		return(ft_push_str(a, av));
+	else if (ac > 2)
+		return (ft_push_str(a, av, ac));
 	return (1);
 }

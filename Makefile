@@ -6,7 +6,7 @@
 #    By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/14 21:04:05 by clesaffr          #+#    #+#              #
-#    Updated: 2022/04/17 20:03:23 by clesaffr         ###   ########.fr        #
+#    Updated: 2022/08/01 23:47:07 by clesaffr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,18 +16,19 @@ LIBFT		=	libft.a
 
 CC			=	cc
 
-CFLAGS		=	-g3 -Wall -Werror -Wextra
+CFLAGS		=	-Wall -Werror -Wextra
 
-SRCS		=	ft_pushargs_safely.c \
-				ft_show_and_test.c \
-				ft_stack_functions.c \
+SRCS		=	ft_whitespaces_parsing.c \
+				ft_pushargs_safely.c \
+				ft_node_malloc_and_free.c\
 				ft_core_functions.c \
-				ft_whitespaces_parsing.c \
-				ft_stack_functions2.c \
-				ft_operating_on_list_b.c \
-				ft_operating_on_list_a.c \
 				ft_sorting_by_bits_in_two_stacks.c \
 				ft_sorting_for_stacksize_five.c \
+				ft_sorting_for_stacksize_three.c \
+				ft_stack_general_manipulation.c \
+				ft_operating_on_list_b.c \
+				ft_operating_on_list_a.c \
+				ft_sorting_reverse.c \
 				main.c
 
 OBJS		=	$(SRCS:.c=.o)

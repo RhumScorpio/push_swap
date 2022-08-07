@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_functions.c                               :+:      :+:    :+:   */
+/*   ft_node_malloc_and_free.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/06 19:49:35 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/06/15 23:04:35 by clesaffr         ###   ########.fr       */
+/*   Created: 2022/07/29 16:39:13 by clesaffr          #+#    #+#             */
+/*   Updated: 2022/07/29 16:39:28 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// malloc_the_node // node_free // node_push
 
 t_node	*malloc_the_node(void)
 {
@@ -20,10 +18,7 @@ t_node	*malloc_the_node(void)
 
 	new = (t_node *)malloc(sizeof(t_node));
 	if (new == NULL)
-	{
-		printf("Error in memory allocation.\n");
 		return (NULL);
-	}
 	new->next = NULL;
 	return (new);
 }

@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_functions2.c                              :+:      :+:    :+:   */
+/*   ft_stack_general_manipulation.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/08 18:36:19 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/06/15 23:04:11 by clesaffr         ###   ########.fr       */
+/*   Created: 2022/07/29 16:42:50 by clesaffr          #+#    #+#             */
+/*   Updated: 2022/07/29 16:42:53 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// list_addback // link_new_node_to_head // get_list_size // list_too_short
 
 void	list_addback(t_node *list, t_node *add)
 {

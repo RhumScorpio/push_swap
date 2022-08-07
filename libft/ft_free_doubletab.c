@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_free_doubletab.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: clesaffr <clesaffr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: clesaffr <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/07 17:14:07 by clesaffr          #+#    #+#             */
-/*   Updated: 2022/07/15 19:13:20 by clesaffr         ###   ########.fr       */
+/*   Created: 2022/07/29 16:05:12 by clesaffr          #+#    #+#             */
+/*   Updated: 2022/07/29 16:10:00 by clesaffr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
 
-int	main(int ac, char **av)
+#include "libft.h"
+
+void	ft_free_doubletab(char **doubletab)
 {
-	t_node	*a;
-	t_node	*b;
+	int	i;
+	int	total;
 
-	a = NULL;
-	b = NULL;
-	if (!push_args_safely(&a, ac, av))
+	if (!doubletab)
+		return ;
+	i = 0;
+	total = ft_size_of_doubletab(doubletab);
+	while (i < total)
 	{
-		write(1, "Error\n", 6);
-		node_free(a);
-		return (0);
+		free(doubletab[i]);
+		i++;
 	}
-	core_process(&a, &b);
-	node_free(a);
-	node_free(b);
-	return (1);
+	free(doubletab);
 }
